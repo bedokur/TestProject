@@ -3,4 +3,6 @@
     <string name="discount">%s%% off</string>
     <string name="price">$ %s</string>
     <string name="base_error_message">Something went wrong. Please try later.</string>
+    <string name="on_retry_message">Something went wrong.</string>
+    <string name="retry_string">Retry</string>
 </resources>

@@ -29,6 +29,10 @@ class ProductsViewModel @Inject constructor(
     val productsList = _productsList.asSharedFlow()
 
     init {
+        getProducts()
+    }
+
+    fun getProducts() {
         viewModelScope.launch(Dispatchers.IO) {
             val result = interactor.getProducts()
                 .catch { _errorMessage.send(resource.getString(R.string.base_error_message)) }
