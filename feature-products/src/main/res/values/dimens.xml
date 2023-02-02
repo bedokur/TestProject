@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dot_radius">4dp</dimen>
+    <dimen name="dot_padding">4dp</dimen>
+    <dimen name="indicator_height">16dp</dimen>
+    <dimen name="card_corner_radius">10dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+</resources>

@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 rootProject.name = "TestProject"
 include ':app'
 include ':feature-products'
+include ':common'
+include ':core-network'

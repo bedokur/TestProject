@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="discount">%s%% off</string>
+    <string name="price">$ %s</string>
+    <string name="base_error_message">Something went wrong. Please try later.</string>
+</resources>
