@@ -32,11 +32,13 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
         observe(viewModel.productDetails) {
             adapter.submitList(it.imagesList)
-            viewBinding.brand.text = it.brand
-            viewBinding.discount.text = getString(R.string.discount, it.discount)
-            viewBinding.price.text = getString(R.string.price, it.price)
-            viewBinding.description.text = it.description
-            viewBinding.title.text = it.title
+            with(viewBinding) {
+                brand.text = it.brand
+                discount.text = getString(R.string.discount, it.discount)
+                price.text = getString(R.string.price, it.price)
+                description.text = it.description
+                title.text = it.title
+            }
         }
 
         observe(viewModel.errorMessage) {
