@@ -24,7 +24,6 @@
         android:id="@+id/rvCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/recycler_view_shape"
         app:cardCornerRadius="@dimen/card_corner_radius"
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
