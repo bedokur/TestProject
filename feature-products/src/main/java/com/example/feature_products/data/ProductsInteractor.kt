@@ -1,10 +1,12 @@
 package com.example.feature_products.data
 
-import com.example.core_network.api.models.Product
+import com.example.core_network.di.IoDispatcher
 import com.example.core_network.repository.ProductsRepository
 import com.example.core_network.repository.models.ProductDetailsDomain
 import com.example.core_network.repository.models.ProductDomain
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 interface ProductsInteractor {
@@ -13,14 +15,15 @@ interface ProductsInteractor {
 }
 
 class ProductsInteractorImpl @Inject constructor(
-    private val repository: ProductsRepository
+    private val repository: ProductsRepository,
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : ProductsInteractor {
 
     override suspend fun getProducts(): Flow<List<ProductDomain>> {
-        return repository.getProducts()
+        return withContext(ioDispatcher) { repository.getProducts() }
     }
 
     override suspend fun getDetails(id: String): Flow<ProductDetailsDomain> {
-        return repository.getProductDetails(id)
+        return withContext(ioDispatcher) { repository.getProductDetails(id) }
     }
 }

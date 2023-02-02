@@ -11,7 +11,6 @@ import com.example.feature_products.R
 import com.example.feature_products.data.ProductsInteractor
 import com.example.feature_products.navigationArgName
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.catch
@@ -32,7 +31,7 @@ class DetailsViewModel @Inject constructor(
     val productDetails = _productDetails.asSharedFlow()
 
     init {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch() {
             val id = savedStateHandle.get<String>(navigationArgName)
             if (id == null) {
                 _errorMessage.send(resource.getString(R.string.base_error_message))

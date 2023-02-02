@@ -9,7 +9,6 @@ import com.example.feature_products.ProductsNavigator
 import com.example.feature_products.R
 import com.example.feature_products.data.ProductsInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.catch
@@ -33,7 +32,7 @@ class ProductsViewModel @Inject constructor(
     }
 
     fun getProducts() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch() {
             val result = interactor.getProducts()
                 .catch { _errorMessage.send(resource.getString(R.string.base_error_message)) }
             _productsList.emitAll(result)
