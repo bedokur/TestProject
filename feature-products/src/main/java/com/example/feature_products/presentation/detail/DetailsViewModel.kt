@@ -34,7 +34,7 @@ class DetailsViewModel @Inject constructor(
     init {
         viewModelScope.launch(Dispatchers.IO) {
             val id = savedStateHandle.get<String>(navigationArgName)
-            if (id.isNullOrEmpty()) {
+            if (id == null) {
                 _errorMessage.send(resource.getString(R.string.base_error_message))
             } else {
                 val result = interactor.getDetails(id)
